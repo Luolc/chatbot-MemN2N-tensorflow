@@ -1,8 +1,7 @@
 from __future__ import absolute_import
 from __future__ import print_function
 
-from data_utils import load_dialog_task, vectorize_data, load_candidates, vectorize_candidates, \
-    vectorize_candidates_sparse, tokenize
+from data_utils import load_dialog_task, vectorize_data, load_candidates, vectorize_candidates, tokenize
 from sklearn import metrics
 from memn2n import MemN2NDialog
 from itertools import chain
@@ -37,7 +36,7 @@ FLAGS = tf.flags.FLAGS
 print("Started Task:", FLAGS.task_id)
 
 
-class chatBot(object):
+class ChatBot(object):
     def __init__(self, data_dir, model_dir, task_id, isInteractive=True, OOV=False, memory_size=50, random_state=None,
                  batch_size=32, learning_rate=0.001, epsilon=1e-8, max_grad_norm=40.0, evaluation_interval=10, hops=3,
                  epochs=200, embedding_size=20):
@@ -227,7 +226,7 @@ if __name__ == '__main__':
     model_dir = "task" + str(FLAGS.task_id) + "_" + FLAGS.model_dir
     if not os.path.exists(model_dir):
         os.makedirs(model_dir)
-    chatbot = chatBot(FLAGS.data_dir, model_dir, FLAGS.task_id, OOV=FLAGS.OOV,
+    chatbot = ChatBot(FLAGS.data_dir, model_dir, FLAGS.task_id, OOV=FLAGS.OOV,
                       isInteractive=FLAGS.interactive, batch_size=FLAGS.batch_size)
     # chatbot.run()
     if FLAGS.train:
