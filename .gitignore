@@ -105,3 +105,9 @@ ENV/
 
 task_*
 task*
+
+# whl for Windows x64
+.whl
+
+# PyCharm
+.idea
